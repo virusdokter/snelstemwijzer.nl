@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 768px) {
+  #layout {
+    background-image: url("/background.jpg");
+  }
+}
