@@ -7,11 +7,13 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="icon" type="image/png" href="/favicon.png" />
           <title>SnelStemwijzer</title>
-          <script
-            type="text/javascript"
-            src="https://platform-api.sharethis.com/js/sharethis.js#property=603ea06451f70600114ff1aa&product=inline-share-buttons"
-            async
-          ></script>
+          <meta
+            property="og:image"
+            content="/snelstemwijzer-social-share.jpg"
+          />
+          <meta property="og:image:type" content="image/jpeg" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
         </Head>
         <body className="min-h-screen">
           <Main />
