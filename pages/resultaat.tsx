@@ -51,7 +51,6 @@ const Resultaat: React.FC = () => {
           radius: 4, // the corner radius on each button (INTEGER)
           show_total: true,
           size: 40, // the size of each button (INTEGER)
-          url: "https://www.snelstemwijzer.nl",
         }}
       />
       <Link href="/over">
