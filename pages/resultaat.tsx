@@ -9,7 +9,7 @@ const Resultaat: React.FC = () => {
         <div className="flex flex-row md:flex-col items-center md:w-28">
           <img
             src="/match-fvd.jpg"
-            alt="Logo van Forum voor Democratie met een ronde pijl er volledig omheen"
+            alt="Logo van Forum voor Democratie met een ronde pijl"
             width="120"
             height="120"
           />
@@ -21,7 +21,7 @@ const Resultaat: React.FC = () => {
         <div className="flex flex-row md:flex-col items-center">
           <img
             src="/match-lijst-30.jpg"
-            alt="Logo van Lijst 30 met een ronde pijl er volledig omheen"
+            alt="Logo van Lijst 30 met een ronde pijl"
             width="120"
             height="120"
           />
