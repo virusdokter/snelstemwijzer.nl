@@ -1,7 +1,17 @@
 import Layout from "../components/layout";
 import Link from "next/link";
+import { useContext, useEffect } from "react";
+import { AppContext } from "./_app";
 
 const Home: React.FC = () => {
+  const { started, setStarted } = useContext(AppContext);
+
+  useEffect(() => {
+    if (!started) {
+      setStarted(true);
+    }
+  }, [started, setStarted]);
+
   return (
     <Layout>
       <h2 className="mb-4 font-bold text-xl md:text-2xl">

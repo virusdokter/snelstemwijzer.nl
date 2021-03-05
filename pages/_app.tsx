@@ -1,6 +1,16 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import "../styles/globals.css";
+
+export const AppContext = createContext<{
+  started?: boolean;
+  setStarted?: Dispatch<SetStateAction<boolean>>;
+}>({});
 
 type AppProps = {
   Component: React.FC<JSX.ElementAttributesProperty>;
@@ -8,20 +18,18 @@ type AppProps = {
 };
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const router = useRouter();
   const [started, setStarted] = useState(false);
-  useEffect(() => {
-    if (!started && (Component.name === "Home" || Component.name === "Start")) {
-      setStarted(true);
-    } else if (
-      !started &&
-      (Component.name === "Resultaat" || Component.name === "Oneens")
-    ) {
-      router.replace("/");
-    }
-  }, [Component, started, setStarted]);
+  const [context, setContext] = useState({ started, setStarted });
 
-  return <Component {...pageProps} />;
+  useEffect(() => {
+    setContext({ started, setStarted });
+  }, [started, setStarted]);
+
+  return (
+    <AppContext.Provider value={context}>
+      <Component {...pageProps} />
+    </AppContext.Provider>
+  );
 };
 
 export default App;

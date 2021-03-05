@@ -1,8 +1,20 @@
 import Layout from "../components/layout";
 import Link from "next/link";
 import { InlineShareButtons } from "sharethis-reactjs";
+import { useRouter } from "next/router";
+import { useContext, useLayoutEffect } from "react";
+import { AppContext } from "./_app";
 
 const Resultaat: React.FC = () => {
+  const router = useRouter();
+  const { started, setStarted } = useContext(AppContext);
+
+  useLayoutEffect(() => {
+    if (!started) {
+      router.replace("/");
+    }
+  }, [started, setStarted]);
+
   return (
     <Layout variant="oneens">
       <div className="flex flex-col md:flex-row gap-8 my-8 md:mt-16 md:gap-16">

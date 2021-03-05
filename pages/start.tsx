@@ -1,7 +1,17 @@
 import Layout from "../components/layout";
 import Link from "next/link";
+import { useContext, useEffect } from "react";
+import { AppContext } from "./_app";
 
 const Start: React.FC = () => {
+  const { started, setStarted } = useContext(AppContext);
+
+  useEffect(() => {
+    if (!started) {
+      setStarted(true);
+    }
+  }, [started, setStarted]);
+
   return (
     <Layout>
       <p className="text-xl font-bold mb-4 md:text-2xl">
